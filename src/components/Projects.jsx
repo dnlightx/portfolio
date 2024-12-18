@@ -49,7 +49,7 @@ const Projects = () => {
       title: "Tic-Tac-Toe", 
       description: "A clean Tic-Tac-Toe Game built with React",
       image: "/src/assets/tictactoe.png",
-      link: "#"
+      link: "https://tictactoe-promise.vercel.app/"
     },
     {
       title: "2048",
