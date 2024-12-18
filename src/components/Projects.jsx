@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
+// Import images
+import comingSoonImg from '../assets/coming soon.png';
+import tictactoeImg from '../assets/tictactoe.png';
+import game2048Img from '../assets/2048.png';
+
 const ProjectCard = ({ title, description, image, link }) => (
   <motion.div
     className="rounded-lg overflow-hidden shadow-lg bg-gray-900"
@@ -32,7 +37,7 @@ const ProjectCard = ({ title, description, image, link }) => (
 ProjectCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  image: PropTypes.object.isRequired,
+  image: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
 };
 
@@ -41,20 +46,19 @@ const Projects = () => {
     {
       title: "Ultimate Productivity App",
       description: "A full-stack Productivity App built with React and Flask",
-      image: "/src/assets/coming soon.png",
+      image: comingSoonImg,
       link: "#"
     },
-
     {
       title: "Tic-Tac-Toe", 
       description: "A clean Tic-Tac-Toe Game built with React",
-      image: "/src/assets/tictactoe.png",
+      image: tictactoeImg,
       link: "https://tictactoe-promise.vercel.app/"
     },
     {
       title: "2048",
       description: "A clean 2048 Game built with React",
-      image: "/src/assets/2048.png",
+      image: game2048Img,
       link: "https://2048-promise.vercel.app/"
     },
   ];
