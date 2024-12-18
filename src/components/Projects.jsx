@@ -9,9 +9,16 @@ import game2048Img from '../assets/2048.png';
 const ProjectCard = ({ title, description, image, link }) => (
   <motion.div
     className="rounded-lg overflow-hidden shadow-lg bg-gray-900"
-    whileHover={{ scale: 1.05 }}
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
+    animate={{ 
+      scale: [1, 1.05, 1],
+      transition: { 
+        duration: 2, 
+        repeat: Infinity, 
+        repeatDelay: 1 
+      }
+    }}
     transition={{ duration: 0.5 }}
   >
     <img src={image} alt={title} className="w-full h-48 object-cover" />
@@ -47,7 +54,7 @@ const Projects = () => {
       title: "Ultimate Productivity App",
       description: "A full-stack Productivity App built with React and Flask",
       image: comingSoonImg,
-      link: "#"
+      link: "https://github.com/dnlightx/workshop"
     },
     {
       title: "Tic-Tac-Toe", 

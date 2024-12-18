@@ -4,9 +4,11 @@ import { FaHome, FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { SiLeetcode } from 'react-icons/si';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleContactClick = () => {
     // Navigate to home page if not already there
@@ -19,6 +21,10 @@ const Navbar = () => {
         contactSection.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -38,9 +44,18 @@ const Navbar = () => {
             <FaHome />
           </Link>
 
-          {/* Center - Navigation links */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 flex space-x-8">
+          {/* Hamburger menu for mobile */}
+          <div className="md:hidden">
+            <button 
+              onClick={toggleMenu}
+              className="text-white focus:outline-none"
+            >
+              {isMenuOpen ? '✕' : '☰'}
+            </button>
+          </div>
 
+          {/* Center - Navigation links (desktop) */}
+          <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
             <Link
               to="/projects"
               className="text-lg font-semibold text-white hover:text-blue-500 hover:scale-110 transition-all duration-300"
@@ -99,13 +114,37 @@ const Navbar = () => {
             </motion.a>
           </div>
         </div>
+
+        {/* Mobile menu */}
+        {isMenuOpen && (
+          <div className="md:hidden absolute left-0 right-0 bg-gray-900">
+            <div className="px-4 pt-2 pb-4 space-y-4">
+              <Link
+                to="/projects"
+                className="block text-lg font-semibold text-white hover:text-blue-500"
+                onClick={toggleMenu}
+              >
+                Projects
+              </Link>
+              <span
+                onClick={() => {
+                  handleContactClick();
+                  toggleMenu();
+                }}
+                className="block text-lg font-semibold cursor-pointer text-white hover:text-blue-500"
+              >
+                Contact
+              </span>
+            </div>
+          </div>
+        )}
       </div>
     </motion.nav>
   );
 };
 
 Navbar.propTypes = {
-  darkMode: PropTypes.bool.isRequired
+  darkMode: PropTypes.bool
 };
 
 export default Navbar;

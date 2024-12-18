@@ -5,9 +5,16 @@ import PropTypes from 'prop-types';
 const SkillCard = ({ icon: Icon, name, years, darkMode }) => (
   <motion.div
     className={`p-6 ${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-lg`}
-    whileHover={{ scale: 1.05 }}
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
+    animate={{ 
+      scale: [1, 1.05, 1],
+      transition: { 
+        duration: 2, 
+        repeat: Infinity, 
+        repeatDelay: 1 
+      }
+    }}
     transition={{ duration: 0.5 }}
   >
     <Icon className={`text-5xl mb-4 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
@@ -23,7 +30,7 @@ SkillCard.propTypes = {
   darkMode: PropTypes.bool.isRequired,
 };
 
-const Skills = ({ darkMode }) => {
+const Skills = () => {
   const skills = [
     { icon: FaPython, name: 'Python', years: 1 },
     { icon: FaHtml5, name: 'HTML', years: 2 },
@@ -35,10 +42,9 @@ const Skills = ({ darkMode }) => {
     <section id="skills" className="py-20">
       <div className="container mx-auto px-4">
         <motion.h2 
-          className={`text-3xl font-bold mb-12 text-center ${darkMode ? 'text-white' : 'text-gray-800'}`}
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          className="text-3xl font-bold mb-12 text-center text-white"
+          animate={{ scale: [1, 1.1, 1] }}  
+          transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
         >
           Skills
         </motion.h2>
@@ -49,7 +55,7 @@ const Skills = ({ darkMode }) => {
               icon={skill.icon}
               name={skill.name}
               years={skill.years}
-              darkMode={darkMode}
+              darkMode={true}
             />
           ))}
         </div>

@@ -20,13 +20,15 @@ const Home = () => (
       <motion.h1 
         className="text-5xl font-bold mb-4 text-white"
         animate={{ scale: [1, 1.1, 1] }}  
-        transition={{ duration: 1, repeat: Infinity, repeatDelay: 1 }}
+        transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
       >
         Promise Omisakin
       </motion.h1>
-      <p className="text-xl font-semibold text-gray-300">
+      <motion.p className="text-xl font-semibold text-gray-300"
+      animate={{ scale: [1, 1.1, 1] }}  
+      transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}>
         Full-Stack Developer
-      </p>
+      </motion.p>
     </motion.header>
 
     {/* About Section */}
@@ -37,9 +39,11 @@ const Home = () => (
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <h2 className="text-4xl font-bold mb-8 text-center text-white">
+      <motion.h2 className="text-4xl font-bold mb-8 text-center text-white"
+      animate={{ scale: [1, 1.1, 1] }}  
+      transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}>
         About Me
-      </h2>
+      </motion.h2>
       <p className="text-lg max-w-3xl mx-auto text-center text-gray-300">
         A passionate developer with expertise in modern web technologies.
         I love creating beautiful and functional applications.
@@ -47,7 +51,7 @@ const Home = () => (
     </motion.section>
 
     {/* Skills Section */}
-    <Skills darkMode={true} />
+    <Skills />
 
     {/* Contact Section */}
     <motion.section
@@ -57,9 +61,11 @@ const Home = () => (
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <h2 className="text-4xl font-bold mb-8 text-center text-white">
+      <motion.h2 className="text-4xl font-bold mb-8 text-center text-white"
+      animate={{ scale: [1, 1.1, 1] }}  
+      transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}>
         Contact Me
-      </h2>
+      </motion.h2>
       <div className="flex justify-center space-x-6">
       <motion.a
           href="mailto:omifisayopromise5@gmail.com"
