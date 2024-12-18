@@ -21,5 +21,5 @@ This is a personal portfolio website showcasing my projects, skills, and profess
 ## 📝 Contact Me
 - Promise Omisakin
 - Email: omifisayopromise5@gmail.com
-- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/promise-omisakin-07579a2b8/)
-- Portfolio: [Live Website](https://your-portfolio-url.com)
+- LinkedIn: https://www.linkedin.com/in/promise-omisakin-07579a2b8/
+- Portfolio: https://your-portfolio-url.com
