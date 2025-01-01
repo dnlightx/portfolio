@@ -1,6 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import './WorkShop.css';
+import wp1 from './assets/wp1.png';
+import wp2 from './assets/wp2.png';
 
 const WorkShop = () => {
     return (
@@ -20,7 +21,7 @@ const WorkShop = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <img src="src\assets\wp1.png" alt="Image 1" />
+                    <img src={wp1} alt="Image 1" />
                 </motion.div>
                 <motion.div 
                     className="image-box"
@@ -28,7 +29,7 @@ const WorkShop = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <img src="src\assets\wp2.png" alt="Image 2" />
+                    <img src={wp2} alt="Image 2" />
                 </motion.div>
             </div>
         </div>
