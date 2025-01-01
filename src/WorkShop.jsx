@@ -20,7 +20,7 @@ const WorkShop = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <img src="src/assets/workshop1.jpg" alt="Image 1" />
+                    <img src="src\assets\wp1.png" alt="Image 1" />
                 </motion.div>
                 <motion.div 
                     className="image-box"
@@ -28,7 +28,7 @@ const WorkShop = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <img src="src/assets/workshop2.jpg" alt="Image 2" />
+                    <img src="src\assets\wp2.png" alt="Image 2" />
                 </motion.div>
             </div>
         </div>
