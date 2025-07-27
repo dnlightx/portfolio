@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import PropTypes from 'prop-types';
 
 // Import images
 import comingSoonImg from '../assets/coming soon.png';
@@ -8,45 +7,33 @@ import game2048Img from '../assets/2048.png';
 
 const ProjectCard = ({ title, description, image, link }) => (
   <motion.div
-    className="rounded-lg overflow-hidden shadow-lg bg-gray-900"
-    initial={{ opacity: 0, y: 20 }}
+    className="rounded-lg overflow-hidden shadow-lg bg-light-secondary dark:bg-dark-secondary flex flex-col"
+    initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
-    animate={{ 
-      scale: [1, 1.05, 1],
-      transition: { 
-        duration: 2, 
-        repeat: Infinity, 
-        repeatDelay: 1 
-      }
-    }}
-    transition={{ duration: 0.5 }}
+    whileHover={{ y: -10, scale: 1.05, shadow: '2xl' }}
+    transition={{ duration: 0.4, type: 'spring', stiffness: 200 }}
   >
     <img src={image} alt={title} className="w-full h-48 object-cover" />
-    <div className="p-6">
-      <h3 className="text-2xl font-bold mb-3 text-white">
+    <div className="p-6 flex-grow flex flex-col">
+      <h3 className="text-2xl font-bold mb-3 text-light-text dark:text-dark-text">
         {title}
       </h3>
-      <p className="mb-4 text-gray-300">
+      <p className="mb-4 text-gray-600 dark:text-gray-300 font-semibold flex-grow">
         {description}
       </p>
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
-      >
-        View Project
-      </a>
+      <div className="text-center mt-auto">
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-light-button dark:bg-dark-secondary text-light-text dark:text-dark-text px-4 py-2 rounded-lg font-bold transition-all duration-300 ease-in-out transform hover:scale-110 hover:bg-gray-300 dark:hover:bg-gray-700"
+        >
+          View Project
+        </a>
+      </div>
     </div>
   </motion.div>
 );
-
-ProjectCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-};
 
 const Projects = () => {
   const projects = [
@@ -71,12 +58,14 @@ const Projects = () => {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-black py-16">
+    <div className="min-h-screen w-full bg-light-background dark:bg-dark-background py-24">
       <div className="container mx-auto px-4">
         <motion.h2 
-        className="text-4xl font-bold text-center text-white mb-12"
-        animate={{ scale: [1, 1.1, 1] }}  
-        transition={{ duration: 1, repeat: Infinity, repeatDelay: 1 }}>
+          className="text-4xl font-bold text-center text-light-text dark:text-dark-text mb-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           My Projects
         </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

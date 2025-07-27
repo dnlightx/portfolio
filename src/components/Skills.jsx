@@ -1,71 +1,52 @@
 import { motion } from 'framer-motion';
-import { FaPython, FaHtml5, FaCss3Alt, FaJs } from 'react-icons/fa';
-import PropTypes from 'prop-types';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaPython } from 'react-icons/fa';
 
-const SkillCard = ({ icon: Icon, name, years, darkMode }) => (
+const SkillCard = ({ icon: Icon, name }) => (
   <motion.div
-    className={`p-6 ${darkMode ? 'bg-gray-800' : 'bg-white'} rounded-lg shadow-lg`}
+    className="p-6 bg-light-secondary dark:bg-dark-secondary rounded-lg shadow-lg text-center"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
-    animate={{ 
-      scale: [1, 1.05, 1],
-      transition: { 
-        duration: 2, 
-        repeat: Infinity, 
-        repeatDelay: 1 
-      }
-    }}
-    transition={{ duration: 0.5 }}
+    whileHover={{ scale: 1.1, rotate: 5, y: -10 }}
+    transition={{ duration: 0.3, type: 'spring', stiffness: 300 }}
   >
-    <Icon className={`text-5xl mb-4 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
-    <h3 className={`text-xl font-bold mb-2 ${darkMode ? 'text-white' : 'text-gray-800'}`}>{name}</h3>
-    <p className={`${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{years} {years === 1 ? 'year' : 'years'}</p>
+    <Icon className="text-5xl mb-4 text-light-text dark:text-dark-text mx-auto" />
+    <h3 className="text-xl font-bold text-light-text dark:text-dark-text">{name}</h3>
   </motion.div>
 );
 
-SkillCard.propTypes = {
-  icon: PropTypes.elementType.isRequired,
-  name: PropTypes.string.isRequired,
-  years: PropTypes.number.isRequired,
-  darkMode: PropTypes.bool.isRequired,
-};
-
 const Skills = () => {
   const skills = [
-    { icon: FaPython, name: 'Python', years: 1 },
-    { icon: FaHtml5, name: 'HTML', years: 2 },
-    { icon: FaCss3Alt, name: 'CSS', years: 2 },
-    { icon: FaJs, name: 'JavaScript', years: 1 },
+    { icon: FaReact, name: 'React' },
+    { icon: FaJs, name: 'JavaScript' },
+    { icon: FaPython, name: 'Python' },
+    { icon: FaHtml5, name: 'HTML' },
+    { icon: FaCss3Alt, name: 'CSS' },
+    { icon: FaGitAlt, name: 'Git' },
   ];
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20 bg-light-background dark:bg-dark-background">
       <div className="container mx-auto px-4">
         <motion.h2 
-          className="text-3xl font-bold mb-12 text-center text-white"
-          animate={{ scale: [1, 1.1, 1] }}  
-          transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+          className="text-4xl font-bold mb-12 text-center text-light-text dark:text-dark-text"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         >
           Skills
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           {skills.map((skill, index) => (
             <SkillCard
               key={index}
               icon={skill.icon}
               name={skill.name}
-              years={skill.years}
-              darkMode={true}
             />
           ))}
         </div>
       </div>
     </section>
   );
-};
-
-Skills.propTypes = {
-  darkMode: PropTypes.bool.isRequired,
 };
 
 export default Skills;
