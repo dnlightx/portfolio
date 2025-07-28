@@ -62,7 +62,7 @@ const Home = () => (
           <FaLinkedin />
         </a>
         <a
-          href="https://x.com/dnlight69"
+          href="https://x.com/dnlightx"
           target="_blank"
           rel="noopener noreferrer"
           className="text-xl transition-all duration-300 ease-in-out transform hover:scale-125 hover:text-gray-500 dark:hover:text-gray-300"

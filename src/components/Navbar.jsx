@@ -66,7 +66,7 @@ const Navbar = () => {
             <a href="https://github.com/dnlight" target="_blank" rel="noopener noreferrer" className="text-2xl text-light-text dark:text-dark-text transition-transform duration-300 hover:scale-125"><FaGithub /></a>
             <a href="https://www.linkedin.com/in/promise-omisakin-07579a2b8/" target="_blank" rel="noopener noreferrer" className="text-2xl text-light-text dark:text-dark-text transition-transform duration-300 hover:scale-125"><FaLinkedin /></a>
             <a href="https://www.instagram.com/dnlightx/" target="_blank" rel="noopener noreferrer" className="text-2xl text-light-text dark:text-dark-text transition-transform duration-300 hover:scale-125"><FaInstagram /></a>
-            <a href="https://x.com/dnlight69" target="_blank" rel="noopener noreferrer" className="text-2xl text-light-text dark:text-dark-text transition-transform duration-300 hover:scale-125"><FaXTwitter /></a>
+            <a href="https://x.com/dnlightx" target="_blank" rel="noopener noreferrer" className="text-2xl text-light-text dark:text-dark-text transition-transform duration-300 hover:scale-125"><FaXTwitter /></a>
             <a href="https://leetcode.com/u/DnLight/" target="_blank" rel="noopener noreferrer" className="text-2xl text-light-text dark:text-dark-text transition-transform duration-300 hover:scale-125"><SiLeetcode /></a>
             <ThemeSwitcher />
           </div>
