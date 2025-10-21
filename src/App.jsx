@@ -17,7 +17,7 @@ const Home = () => (
       transition={{ duration: 0.5 }}
     >
       <h1 className="text-5xl font-bold mb-4">Promise Omisakin</h1>
-      <p className="text-xl font-semibold text-gray-600 dark:text-gray-300">Full-Stack Developer</p>
+      <p className="text-xl font-semibold text-gray-600 dark:text-gray-300">Frontend Developer</p>
     </motion.header>
 
     <motion.section 
