@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { SiLeetcode } from 'react-icons/si';
 
@@ -14,8 +14,8 @@ const SocialLink = ({ href, icon: Icon, label, colorClass }) => (
     >
         <Icon className="text-4xl mr-6 group-hover:scale-110 transition-transform duration-300" />
         <div>
-            <h3 className="text-xl font-bold">{label}</h3>
-            <p className="text-sm opacity-70">Connect with me</p>
+            <h3 className="text-xl md:text-2xl font-bold">{label}</h3>
+            <p className="text-sm opacity-70 mt-1">Connect with me</p>
         </div>
     </motion.a>
 );
@@ -51,31 +51,22 @@ const Socials = () => {
             icon: SiLeetcode,
             label: "LeetCode",
             colorClass: "hover:text-[#ffa116]"
-        },
-        {
-            href: "https://www.instagram.com/dnlightx/",
-            icon: FaInstagram,
-            label: "Instagram",
-            colorClass: "hover:text-[#E1306C]"
         }
     ];
 
     return (
-        <div className="min-h-screen pt-24 px-4 bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text">
+        <div className="min-h-screen pt-32 pb-20 px-4 sm:px-6 md:px-12 bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text">
             <div className="container mx-auto max-w-4xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="text-center mb-16"
+                    className="text-center mb-12 md:mb-16"
                 >
-                    <h1 className="text-5xl font-bold mb-4">Connect With Me</h1>
-                    <p className="text-xl text-gray-600 dark:text-gray-400">
-                        Feel free to reach out for collaborations or just a friendly hello!
-                    </p>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">Connect With Me</h1>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-6 md:gap-8">
                     {socials.map((social, index) => (
                         <motion.div
                             key={social.label}
