@@ -1,47 +1,53 @@
 import { motion } from 'framer-motion';
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaPython } from 'react-icons/fa';
+import {
+  FaReact, FaPython, FaAws, FaDocker, FaDatabase
+} from 'react-icons/fa';
+import {
+  SiTailwindcss, SiApachespark, SiDatabricks, SiJupyter, SiPostgresql
+} from 'react-icons/si';
 
-const SkillCard = ({ icon: Icon, name }) => (
+const SkillItem = ({ icon: Icon, name, color }) => (
   <motion.div
-    className="p-6 bg-light-secondary dark:bg-dark-secondary rounded-lg shadow-lg text-center"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    whileHover={{ scale: 1.1, rotate: 5, y: -10 }}
-    transition={{ duration: 0.3, type: 'spring', stiffness: 300 }}
+    className="flex flex-col items-center justify-center p-6 bg-light-secondary dark:bg-dark-secondary rounded-xl hover:bg-white dark:hover:bg-gray-800 shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-gray-200 dark:hover:border-gray-700"
+    whileHover={{ scale: 1.05, y: -5 }}
+    initial={{ opacity: 0, scale: 0.9 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
   >
-    <Icon className="text-5xl mb-4 text-light-text dark:text-dark-text mx-auto" />
-    <h3 className="text-xl font-bold text-light-text dark:text-dark-text">{name}</h3>
+    <Icon className={`text-5xl mb-4 ${color}`} />
+    <span className="font-semibold text-gray-700 dark:text-gray-200">{name}</span>
   </motion.div>
 );
 
 const Skills = () => {
   const skills = [
-    { icon: FaReact, name: 'React' },
-    { icon: FaJs, name: 'JavaScript' },
-    { icon: FaPython, name: 'Python' },
-    { icon: FaHtml5, name: 'HTML' },
-    { icon: FaCss3Alt, name: 'CSS' },
-    { icon: FaGitAlt, name: 'Git' },
+    { icon: SiTailwindcss, name: 'Tailwind CSS', color: 'text-cyan-500' },
+    { icon: FaDocker, name: 'Docker', color: 'text-blue-500' },
+    { icon: SiPostgresql, name: 'SQL / Postgres', color: 'text-blue-400' },
+    { icon: SiApachespark, name: 'PySpark', color: 'text-orange-500' },
+    { icon: FaAws, name: 'AWS', color: 'text-yellow-500' },
+    { icon: SiJupyter, name: 'Jupyter', color: 'text-orange-600' },
+    { icon: SiDatabricks, name: 'Databricks', color: 'text-red-600' },
+    { icon: FaReact, name: 'React 19', color: 'text-cyan-400' },
+    { icon: FaPython, name: 'Python', color: 'text-yellow-300' },
   ];
 
   return (
-    <section id="skills" className="py-20 bg-light-background dark:bg-dark-background">
+    <section className="py-20 bg-light-background dark:bg-dark-background">
       <div className="container mx-auto px-4">
-        <motion.h2 
-          className="text-4xl font-bold mb-12 text-center text-light-text dark:text-dark-text"
+        <motion.div
+          className="text-center mb-16"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Skills
-        </motion.h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <h2 className="text-4xl font-bold mb-4">Technical Arsenal</h2>
+          <p className="text-gray-600 dark:text-gray-400">Tools and technologies I use to build scalable solutions.</p>
+        </motion.div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {skills.map((skill, index) => (
-            <SkillCard
-              key={index}
-              icon={skill.icon}
-              name={skill.name}
-            />
+            <SkillItem key={index} {...skill} />
           ))}
         </div>
       </div>

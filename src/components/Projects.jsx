@@ -1,34 +1,54 @@
 import { motion } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
-// Import images
-import comingSoonImg from '../assets/coming soon.png';
-import tictactoeImg from '../assets/tictactoe.png';
-import game2048Img from '../assets/2048.png';
+// Placeholder or actual images would be imported here. 
+// For now using colors/gradients as placeholders if images aren't available to avoid broken images.
 
-const ProjectCard = ({ title, description, image, link }) => (
+const ProjectCard = ({ title, description, tags, link, github, color }) => (
   <motion.div
-    className="rounded-lg overflow-hidden shadow-lg bg-light-secondary dark:bg-dark-secondary flex flex-col"
+    className="group relative rounded-2xl overflow-hidden bg-light-secondary dark:bg-dark-secondary shadow-lg hover:shadow-2xl transition-all duration-500"
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
-    whileHover={{ y: -10, scale: 1.05, shadow: '2xl' }}
-    transition={{ duration: 0.4, type: 'spring', stiffness: 200 }}
+    viewport={{ once: true }}
+    whileHover={{ y: -10 }}
   >
-    <img src={image} alt={title} className="w-full h-48 object-cover" />
-    <div className="p-6 flex-grow flex flex-col">
-      <h3 className="text-2xl font-bold mb-3 text-light-text dark:text-dark-text">
+    {/* Image/Gradient Area */}
+    <div className={`h-48 w-full ${color} flex items-center justify-center p-6`}>
+      <h3 className="text-3xl font-bold text-white opacity-80 mix-blend-overlay">{title}</h3>
+    </div>
+
+    <div className="p-8">
+      <h3 className="text-2xl font-bold mb-3 text-light-text dark:text-dark-text group-hover:text-purple-500 transition-colors">
         {title}
       </h3>
-      <p className="mb-4 text-gray-600 dark:text-gray-300 font-semibold flex-grow">
+      <p className="mb-6 text-gray-600 dark:text-gray-300 line-clamp-3">
         {description}
       </p>
-      <div className="text-center mt-auto">
+
+      <div className="flex flex-wrap gap-2 mb-6">
+        {tags.map(tag => (
+          <span key={tag} className="px-3 py-1 text-xs font-semibold rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <div className="flex items-center gap-4 mt-auto">
         <a
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-light-button dark:bg-dark-secondary text-light-text dark:text-dark-text px-4 py-2 rounded-lg font-bold transition-all duration-300 ease-in-out transform hover:scale-110 hover:bg-gray-300 dark:hover:bg-gray-700"
+          className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-light-text dark:bg-white text-light-background dark:text-black rounded-lg font-bold hover:opacity-90 transition-opacity"
         >
-          View Project
+          <FaExternalLinkAlt /> Live Demo
+        </a>
+        <a
+          href={github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center p-3 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+        >
+          <FaGithub className="text-xl" />
         </a>
       </div>
     </div>
@@ -38,37 +58,50 @@ const ProjectCard = ({ title, description, image, link }) => (
 const Projects = () => {
   const projects = [
     {
-      title: "Ultimate Productivity App",
-      description: "A full-stack Productivity App built with React and Flask",
-      image: comingSoonImg,
-      link: "/workshop"
+      title: "Data Lake Architecture",
+      description: "Designed and implemented a scalable data lake using AWS S3 and Glue. Automated ETL pipelines with PySpark to process over 1TB of daily log data.",
+      tags: ["AWS", "PySpark", "Glue", "S3", "Python"],
+      link: "#",
+      github: "https://github.com/dnlight",
+      color: "bg-gradient-to-br from-blue-600 to-cyan-400"
     },
     {
-      title: "Tic-Tac-Toe", 
-      description: "A clean Tic-Tac-Toe Game built with React",
-      image: tictactoeImg,
-      link: "https://tictactoe-promise.vercel.app/"
+      title: "Real-time Analytics Dashboard",
+      description: "A comprehensive dashboard for visualizing streaming data. Built with React, D3.js, and WebSocket integration for live updates.",
+      tags: ["React 19", "D3.js", "WebSocket", "Node.js"],
+      link: "#",
+      github: "https://github.com/dnlight",
+      color: "bg-gradient-to-br from-purple-600 to-indigo-400"
     },
     {
-      title: "2048",
-      description: "A clean 2048 Game built with React",
-      image: game2048Img,
-      link: "https://2048-promise.vercel.app/"
+      title: "Productivity Suite",
+      description: "Full-stack application for managing tasks and workflows. Features drag-and-drop interfaces and team collaboration tools.",
+      tags: ["React", "Flask", "PostgreSQL", "Docker"],
+      link: "#", // Kept generic as requested to remove specific "Workshop" label but keep project concept
+      github: "https://github.com/dnlight",
+      color: "bg-gradient-to-br from-green-500 to-emerald-400"
     },
   ];
 
   return (
-    <div className="min-h-screen w-full bg-light-background dark:bg-dark-background py-24">
-      <div className="container mx-auto px-4">
-        <motion.h2 
-          className="text-4xl font-bold text-center text-light-text dark:text-dark-text mb-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          My Projects
-        </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="min-h-screen pt-24 pb-12 px-4 bg-light-background dark:bg-dark-background text-light-text dark:text-dark-text">
+      <div className="container mx-auto">
+
+        <div className="text-center mb-16">
+          <motion.h1
+            className="text-5xl font-bold mb-4"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Featured Projects
+          </motion.h1>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            A selection of my work in Data Engineering and Frontend Development.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}

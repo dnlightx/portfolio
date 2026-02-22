@@ -1,93 +1,79 @@
 import { motion } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
-import { FaHome, FaGithub, FaLinkedin, FaInstagram, FaBars, FaTimes } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
-import { SiLeetcode } from 'react-icons/si';
-import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher';
-
-const NavLink = ({ to, children, onClick }) => (
-  <Link
-    to={to}
-    onClick={onClick}
-    className="px-4 py-2 rounded-lg bg-light-button dark:bg-dark-secondary text-light-text dark:text-dark-text font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-300 dark:hover:bg-gray-700"
-  >
-    {children}
-  </Link>
-);
-
-const ContactButton = ({ onClick }) => (
-  <button
-    onClick={onClick}
-    className="px-4 py-2 rounded-lg bg-light-secondary dark:bg-dark-secondary text-light-text dark:text-dark-text transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-gray-200 dark:hover:bg-gray-700"
-  >
-    Contact
-  </button>
-);
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Navbar = () => {
-  const navigate = useNavigate();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleContactClick = () => {
-    navigate('/');
-    setTimeout(() => {
-      const contactSection = document.getElementById('get-in-touch');
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
-    setIsMenuOpen(false);
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const location = useLocation();
 
   return (
-    <motion.nav 
-      className="fixed top-0 left-0 right-0 z-50 bg-light-primary/80 dark:bg-dark-primary/80 backdrop-blur-sm shadow-lg"
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}  
-      transition={{ duration: 0.5 }}
+    <motion.nav
+      className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] md:w-[75%] max-w-4xl"
+      initial={{ y: -100, x: "-50%", opacity: 0 }}
+      animate={{ y: 0, x: "-50%", opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-2xl text-light-text dark:text-dark-text transition-transform duration-300 hover:scale-125">
-            <FaHome />
-          </Link>
+      <div className="flex items-center justify-between px-6 py-3 rounded-full bg-white/70 dark:bg-black/70 backdrop-blur-xl border border-white/20 shadow-xl">
 
-          <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-4">
-            <NavLink to="/projects">Projects</NavLink>
-            <ContactButton onClick={handleContactClick} />
-          </div>
+        {/* Logo / Name */}
+        <Link to="/" className="text-xl font-bold tracking-tight hover:text-purple-500 transition-colors">
+          Promise.
+        </Link>
 
-          <div className="hidden md:flex items-center space-x-4">
-            <a href="https://github.com/dnlight" target="_blank" rel="noopener noreferrer" className="text-2xl text-light-text dark:text-dark-text transition-transform duration-300 hover:scale-125"><FaGithub /></a>
-            <a href="https://www.linkedin.com/in/promise-omisakin-07579a2b8/" target="_blank" rel="noopener noreferrer" className="text-2xl text-light-text dark:text-dark-text transition-transform duration-300 hover:scale-125"><FaLinkedin /></a>
-            <a href="https://www.instagram.com/dnlightx/" target="_blank" rel="noopener noreferrer" className="text-2xl text-light-text dark:text-dark-text transition-transform duration-300 hover:scale-125"><FaInstagram /></a>
-            <a href="https://x.com/dnlightx" target="_blank" rel="noopener noreferrer" className="text-2xl text-light-text dark:text-dark-text transition-transform duration-300 hover:scale-125"><FaXTwitter /></a>
-            <a href="https://leetcode.com/u/DnLight/" target="_blank" rel="noopener noreferrer" className="text-2xl text-light-text dark:text-dark-text transition-transform duration-300 hover:scale-125"><SiLeetcode /></a>
-            <ThemeSwitcher />
-          </div>
+        {/* Desktop Links */}
+        <div className="hidden md:flex items-center gap-1 bg-gray-100/50 dark:bg-gray-800/50 rounded-full p-1 border border-gray-200 dark:border-gray-700">
+          {['About', 'Projects', 'Resume', 'Socials'].map((item) => {
+            const path = `/${item.toLowerCase()}`;
+            const isActive = location.pathname === path;
 
-          <div className="md:hidden flex items-center">
-            <ThemeSwitcher />
-            <button onClick={toggleMenu} className="ml-4 text-2xl text-light-text dark:text-dark-text">
-              {isMenuOpen ? <FaTimes /> : <FaBars />}
-            </button>
-          </div>
+            return (
+              <Link
+                key={item}
+                to={path}
+                className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isActive
+                    ? 'text-white bg-black dark:bg-white dark:text-black shadow-md'
+                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                  }`}
+              >
+                {item}
+              </Link>
+            );
+          })}
         </div>
 
-        {isMenuOpen && (
-          <div className="md:hidden py-4">
-            <div className="flex flex-col space-y-4">
-              <NavLink to="/projects" onClick={toggleMenu}>Projects</NavLink>
-              <ContactButton onClick={handleContactClick} />
-            </div>
+        {/* Right Side Actions */}
+        <div className="flex items-center gap-4">
+          <div className="hidden sm:flex items-center gap-3 pr-4 border-r border-gray-300 dark:border-gray-700">
+            <a href="https://github.com/dnlight" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-purple-500 transition-colors">
+              <FaGithub />
+            </a>
+            <a href="https://www.linkedin.com/in/promise-omisakin-07579a2b8/" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-blue-500 transition-colors">
+              <FaLinkedin />
+            </a>
           </div>
-        )}
+          <ThemeSwitcher />
+        </div>
+
       </div>
+
+      {/* Mobile Menu Placeholder - For simplicity in this iteration, we focus on the floating pill. 
+                A full mobile menu would go here or be a separate overlay. 
+                For now, the pill is responsive but links might wrap or scroll on very small screens if not handled.
+                Adding a simple horizontal scroll for links on mobile if they overflow.
+            */}
+      <div className="md:hidden mt-4 flex justify-center gap-4 overflow-x-auto pb-2">
+        {['About', 'Projects', 'Resume', 'Socials'].map((item) => (
+          <Link
+            key={item}
+            to={`/${item.toLowerCase()}`}
+            className={`text-sm font-medium px-4 py-2 rounded-full bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-sm border border-white/10 ${location.pathname === `/${item.toLowerCase()}` ? 'text-purple-500' : ''
+              }`}
+          >
+            {item}
+          </Link>
+        ))}
+      </div>
+
     </motion.nav>
   );
 };

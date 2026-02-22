@@ -7,29 +7,33 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
       colors: {
         light: {
-          background: '#FFFFFF',
+          background: '#ffffff',
           text: '#1F2937',
           primary: '#F9FAFB',
           secondary: '#F3F4F6',
-          button: '#E5E7EB', // Darker button for light mode
+          button: '#E5E7EB',
         },
         dark: {
-          background: '#000000',
+          background: '#050505', // Slightly lighter than pure black for better contrast
           text: '#F9FAFB',
           primary: '#111111',
-          secondary: '#222222',
+          secondary: '#1A1A1A',
+          button: '#262626',
         },
       },
-      transitionProperty: {
-        'all': 'all',
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
       },
-      transitionDuration: {
-        '300': '300ms',
-      },
-      transitionTimingFunction: {
-        'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        }
       }
     },
   },
