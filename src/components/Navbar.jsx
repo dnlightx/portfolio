@@ -22,12 +22,10 @@ const Navbar = () => {
       >
         <div className="flex items-center justify-between px-5 md:px-6 py-3 rounded-full bg-white/70 dark:bg-black/70 backdrop-blur-xl border border-white/20 shadow-xl">
 
-          {/* Logo / Name */}
-          <Link to="/" onClick={() => setIsOpen(false)} className="text-xl md:text-2xl font-bold tracking-tight hover:text-purple-500 transition-colors">
+          <Link to="/" onClick={() => setIsOpen(false)} className="text-xl md:text-2xl font-bold tracking-tight hover:text-[#0265d8] transition-colors">
             Promise.
           </Link>
 
-          {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-1 bg-gray-100/50 dark:bg-gray-800/50 rounded-full p-1 border border-gray-200 dark:border-gray-700">
             {navLinks.map((item) => {
               const path = `/${item.toLowerCase()}`;
@@ -38,8 +36,8 @@ const Navbar = () => {
                   key={item}
                   to={path}
                   className={`relative px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${isActive
-                      ? 'text-white bg-black dark:bg-white dark:text-black shadow-md'
-                      : 'text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                    ? 'text-white bg-[#0265d8] dark:bg-[#0265d8] shadow-md'
+                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-[#0265d8] dark:hover:text-[#60a5fa]'
                     }`}
                 >
                   {item}
@@ -48,13 +46,12 @@ const Navbar = () => {
             })}
           </div>
 
-          {/* Right Side Actions */}
           <div className="flex items-center gap-3 md:gap-4">
             <div className="hidden sm:flex items-center gap-3 pr-4 border-r border-gray-300 dark:border-gray-700">
-              <a href="https://github.com/dnlight" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-purple-500 transition-colors">
+              <a href="https://github.com/dnlight" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-[#0265d8] transition-colors">
                 <FaGithub />
               </a>
-              <a href="https://www.linkedin.com/in/promise-omisakin-07579a2b8/" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-blue-500 transition-colors">
+              <a href="https://www.linkedin.com/in/promise-omisakin-07579a2b8/" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-[#0b66c2] transition-colors">
                 <FaLinkedin />
               </a>
             </div>
@@ -67,7 +64,6 @@ const Navbar = () => {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -85,7 +81,7 @@ const Navbar = () => {
                   key={item}
                   to={path}
                   onClick={() => setIsOpen(false)}
-                  className={`text-3xl font-bold tracking-wide transition-colors ${isActive ? 'text-purple-500' : 'text-gray-800 dark:text-gray-200 hover:text-purple-400'
+                  className={`text-3xl font-bold tracking-wide transition-colors ${isActive ? 'text-[#0265d8]' : 'text-gray-800 dark:text-gray-200 hover:text-[#0265d8]'
                     }`}
                 >
                   {item}
@@ -93,10 +89,10 @@ const Navbar = () => {
               );
             })}
             <div className="flex items-center gap-6 mt-8">
-              <a href="https://github.com/dnlight" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-purple-500 transition-colors">
+              <a href="https://github.com/dnlight" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-[#0265d8] transition-colors">
                 <FaGithub />
               </a>
-              <a href="https://www.linkedin.com/in/promise-omisakin-07579a2b8/" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-blue-500 transition-colors">
+              <a href="https://www.linkedin.com/in/promise-omisakin-07579a2b8/" target="_blank" rel="noopener noreferrer" className="text-3xl hover:text-[#0b66c2] transition-colors">
                 <FaLinkedin />
               </a>
             </div>

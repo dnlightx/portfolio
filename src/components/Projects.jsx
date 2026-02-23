@@ -14,7 +14,7 @@ const ProjectCard = ({ title, description, tags, link, github, color }) => (
     </div>
 
     <div className="p-8">
-      <h3 className="text-2xl font-bold mb-3 text-light-text dark:text-dark-text group-hover:text-purple-500 transition-colors">
+      <h3 className="text-2xl font-bold mb-3 text-light-text dark:text-dark-text group-hover:text-[#0265d8] transition-colors">
         {title}
       </h3>
       <p className="mb-6 text-gray-600 dark:text-gray-300 line-clamp-3 text-lg">
@@ -34,7 +34,7 @@ const ProjectCard = ({ title, description, tags, link, github, color }) => (
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-light-text dark:bg-white text-light-background dark:text-black rounded-lg font-bold hover:opacity-90 transition-opacity"
+          className="flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-[#0265d8] text-white rounded-lg font-bold hover:bg-blue-600 transition-colors"
         >
           <FaExternalLinkAlt /> Live Demo
         </a>
@@ -42,7 +42,7 @@ const ProjectCard = ({ title, description, tags, link, github, color }) => (
           href={github}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center p-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          className="flex items-center justify-center p-4 border border-gray-300 dark:border-gray-600 rounded-lg hover:border-[#0265d8] dark:hover:border-[#0265d8] hover:text-[#0265d8] transition-colors"
         >
           <FaGithub className="text-xl" />
         </a>
@@ -59,7 +59,7 @@ const Projects = () => {
       tags: ["React", "Flask", "PostgreSQL"],
       link: "#",
       github: "https://github.com/dnlight",
-      color: "bg-gradient-to-br from-green-500 to-emerald-400"
+      color: "bg-gradient-to-br from-[#0265d8] to-blue-400"
     },
   ];
 
