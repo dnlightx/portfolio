@@ -28,11 +28,6 @@ const Home = () => {
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-gray-200 leading-snug">
                         I build scalable data pipelines and craft fluid user interfaces.
                     </h2>
-
-                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
-                        Bridging the gap between rigorous mathematical logic and modern software engineering. building scalable data pipelines and fluid user interfaces.
-                    </p>
-
                     <div className="flex flex-col sm:flex-row gap-4 pt-6">
                         <Link
                             to="/projects"

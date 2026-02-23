@@ -54,8 +54,8 @@ const ProjectCard = ({ title, description, tags, link, github, color }) => (
 const Projects = () => {
   const projects = [
     {
-      title: "Productivity Suite",
-      description: "Full-stack application for managing tasks and workflows. Features drag-and-drop interfaces and team collaboration tools.",
+      title: "WorkShop",
+      description: "Full-stack application for managing tasks and workflows.",
       tags: ["React", "Flask", "PostgreSQL"],
       link: "#",
       github: "https://github.com/dnlight",
@@ -74,7 +74,7 @@ const Projects = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            WorkShop
+            Projects
           </motion.h1>
         </div>
 

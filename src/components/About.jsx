@@ -20,7 +20,6 @@ const About = () => {
                             I specialize in building robust ETL pipelines and managing data lakes.
                             My experience includes working with big data architectures to transform raw data into actionable insights,
                             as well as creating real-world solutions with clean, modern frontend interfaces.
-                            I focus on intuitive UX and responsive design using modern frameworks like React and Tailwind CSS.
                         </p>
 
                         <p>
@@ -29,9 +28,6 @@ const About = () => {
                             which I apply directly to software engineering challenges.
                         </p>
 
-                        <p>
-                            For my tools and technologies, I frequently use SQL, PySpark, AWS, Databricks, and Jupyter for data engineering tasks. On the frontend, my stack revolves around React 19, Tailwind CSS, Framer Motion, and modern JavaScript to build scalable and fluid web applications.
-                        </p>
 
                         <p>
                             Beyond code and calculus, I am an avid chess player. Strategy, foresight, and
