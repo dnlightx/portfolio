@@ -48,6 +48,7 @@ const About = () => {
                     <header className="mb-12">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">About Me</h1>
                     </header>
+                    <h1 className="text-1xl md:text-2xl lg:text-3xl font-bold tracking-tight">Data Enginner and Frontend Developer</h1>
 
                     {/* Content Section */}
                     <article className="space-y-8 text-lg md:text-xl leading-relaxed text-gray-800 dark:text-gray-200">
