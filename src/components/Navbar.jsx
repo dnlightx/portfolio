@@ -48,10 +48,10 @@ const Navbar = () => {
 
           <div className="flex items-center gap-3 md:gap-4">
             <div className="hidden sm:flex items-center gap-3 pr-4 border-r border-gray-300 dark:border-gray-700">
-              <a href="https://github.com/dnlight" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-[#0265d8] transition-colors">
+              <a href="https://github.com/dnlightx" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-[#0265d8] transition-colors">
                 <FaGithub />
               </a>
-              <a href="https://www.linkedin.com/in/promise-omisakin-07579a2b8/" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-[#0b66c2] transition-colors">
+              <a href="https://www.linkedin.com/in/promiseomisakin/" target="_blank" rel="noopener noreferrer" className="text-xl hover:text-[#0b66c2] transition-colors">
                 <FaLinkedin />
               </a>
             </div>

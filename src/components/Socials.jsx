@@ -23,13 +23,13 @@ const SocialLink = ({ href, icon: Icon, label, colorClass }) => (
 const Socials = () => {
     const socials = [
         {
-            href: "https://github.com/dnlight",
+            href: "https://github.com/dnlightx",
             icon: FaGithub,
             label: "GitHub",
             colorClass: "hover:text-gray-900 dark:hover:text-white"
         },
         {
-            href: "https://www.linkedin.com/in/promise-omisakin-07579a2b8/",
+            href: "https://www.linkedin.com/in/promiseomisakin/",
             icon: FaLinkedin,
             label: "LinkedIn",
             colorClass: "hover:text-[#0077b5]"
@@ -47,7 +47,7 @@ const Socials = () => {
             colorClass: "hover:text-red-500"
         },
         {
-            href: "https://leetcode.com/u/DnLight/",
+            href: "https://leetcode.com/u/algolight/",
             icon: SiLeetcode,
             label: "LeetCode",
             colorClass: "hover:text-[#ffa116]"

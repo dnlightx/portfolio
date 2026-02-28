@@ -59,7 +59,7 @@ const About = () => {
                         </p>
 
                         <p>
-                            Beyond code and math, I am an avid chess player. You can find me playing online or analyzing games in my free time. Feel free to challenge me on <a href="https://www.chess.com/member/dnlight" target="_blank" rel="noopener noreferrer" className="text-[#3b82f6] dark:text-[#7fa650] font-bold hover:underline">Chess.com</a>.
+                            Beyond code and math, I am an avid chess player. You can find me playing online or analyzing games in my free time. Feel free to challenge me on <a href="https://www.chess.com/member/algolight" target="_blank" rel="noopener noreferrer" className="text-[#3b82f6] dark:text-[#7fa650] font-bold hover:underline">Chess.com</a>.
                         </p>
                     </article>
 
