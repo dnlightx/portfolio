@@ -50,7 +50,7 @@ const Home = () => {
                         <div className="text-left space-y-6">
                             <h3 className="text-3xl font-bold group-hover:text-[#0265d8] dark:group-hover:text-[#60a5fa] transition-colors">About Me</h3>
                             <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                                I am a 3rd Year Pure Mathematics Undergraduate at the University of Lagos, passionate about software engineering and turning complex logic into elegant solutions.
+                                I am a Data Engineer and Frontend Developer.
                             </p>
                             <div className="flex items-center gap-2 text-[#0265d8] dark:text-[#60a5fa] font-bold group-hover:translate-x-2 transition-transform">
                                 Read full story <FaArrowRight />
